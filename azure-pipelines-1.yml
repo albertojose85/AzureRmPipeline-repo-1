@@ -10,10 +10,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@5
+- task: AzurePowerShell@3
   inputs:
     azureSubscription: 'armEjemplo'
     ScriptType: 'FilePath'
     ScriptPath: './CreatePipelinePS/Deploy-AzTemplate.ps1'
-    ScriptArguments: -Location 'westeurope' -ResourceGroupName 'josecitogrupoarm' -TemplateFile templates\mainTemplate.json -ArtifactStagingDirectory templates
+    ScriptArguments: -Location 'westeurope' -ResourceGroupName 'josecitogrupoarm' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
