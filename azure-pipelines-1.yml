@@ -15,5 +15,5 @@ steps:
     azureSubscription: 'armEjemplo'
     ScriptType: 'FilePath'
     ScriptPath: './CreatePipelinePS/Deploy-AzTemplate.ps1'
-    ScriptArguments: -Location 'westeurope' -ResourceGroupName 'josecitogrupoarm' -TemplateFile templates\mainTemplate.json
+    ScriptArguments: -Location 'westeurope' -ResourceGroupName 'josecitogrupoarm' -TemplateFile templates\mainTemplate.json -ArtifactStagingDirectory templates
     azurePowerShellVersion: 'LatestVersion'
