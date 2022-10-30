@@ -7,20 +7,13 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzureResourceManagerTemplateDeployment@3
+- task: AzurePowerShell@5
   inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'armEjemplo'
-    subscriptionId: 'c20e0080-d670-4c26-9958-593333979a90'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'josecitoGrupoARM'
-    location: 'West Europe'
-    templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/nahuic72/AzureRmPipeline-repo/main/CreateWebApp/azuredeploy.json'
-    overrideParameters: '-projectName josecitoarm'
-    deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
-
+    azureSubscription: 'script-connection'
+    ScriptType: 'FilePath'
+    ScriptPath: './Deploy-AzTemplate.ps1'
+    ScriptArguments: -Location 'westeurope' -ResourceGroupName 'josecitogrupoarm' -TemplateFile templates\mainTemplate.json
+    azurePowerShellVersion: 'LatestVersion'
