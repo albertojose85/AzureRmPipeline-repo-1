@@ -12,8 +12,8 @@ pool:
 steps:
 - task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'script-connection'
+    azureSubscription: 'armEjemplo'
     ScriptType: 'FilePath'
-    ScriptPath: './Deploy-AzTemplate.ps1'
+    ScriptPath: './CreatePipelinePS/Deploy-AzTemplate.ps1'
     ScriptArguments: -Location 'westeurope' -ResourceGroupName 'josecitogrupoarm' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
